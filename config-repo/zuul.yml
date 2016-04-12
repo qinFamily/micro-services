@@ -1,0 +1,11 @@
+zuul:
+  route:
+    samplebackendservice: /hello
+
+zuul:
+  route:
+    samplefrontendservice: /
+
+zuul:
+  route:
+    hystrixdashboard: /hystrix-dashboard
