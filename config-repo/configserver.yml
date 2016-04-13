@@ -1,8 +1,29 @@
-info.description: configserver
+info:
+  component: Config Server
+  description: configserver
 ---
 spring:
   profiles: cloud
+
 service:
   definition:
     metadata:
       uri: http://${spring.application.name}.${application.domain:cfapps.io}
+---
+server:
+  port: 8888
+
+management:
+  context_path: /admin
+
+spring:
+  application:
+    name: configserver
+  jmx:
+    default_domain: cloud.config.server
+  cloud:
+    config:
+      uri: http://localhost:8888
+      server:
+        git:
+          uri: https://github.com/wex5/micro-service/tree/master/config-repo
